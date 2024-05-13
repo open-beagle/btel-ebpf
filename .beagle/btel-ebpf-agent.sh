@@ -8,7 +8,11 @@ cd agent
 
 AGENT_ROOT=$PWD
 AGENT_ARCH="${AGENT_ARCH:-amd64}"
-AGENT_BUILD_ARCH=$(echo ${AGENT_ARCH}|sed 's|amd64|x86_64|'|sed 's|arm64|aarch64|')
+AGENT_BUILD_ARCH=$(echo ${AGENT_ARCH} | sed 's|amd64|x86_64|' | sed 's|arm64|aarch64|')
+
+rm -rf /usr/local/cargo/registry
+mkdir -p $AGENT_ROOT/target/registry
+ln -s $AGENT_ROOT/target/registry /usr/local/cargo/registry
 
 git config --global http.proxy 'socks5://www.ali.wodcloud.com:1283'
 
