@@ -14,8 +14,8 @@ COPY ./agent/target/${AGENT_BUILD_ARCH}-unknown-linux-musl/release/deepflow-agen
 
 COPY ./agent/target/${AGENT_BUILD_ARCH}-unknown-linux-musl/release/deepflow-ebpfctl /bin/
 
-COPY ./agent/docker/require/${AGENT_BUILD_ARCH}/libpcap.so.1 /usr/lib/${AGENT_BUILD_ARCH}-linux-gnu/
-COPY ./agent/target/${AGENT_BUILD_ARCH}-unknown-linux-musl/release/ecapture /usr/bin/
+COPY --chmod=0777 ./agent/docker/require/${AGENT_BUILD_ARCH}/libpcap.so.1 /usr/lib/${AGENT_BUILD_ARCH}-linux-gnu/
+COPY --chmod=0777 ./agent/target/${AGENT_BUILD_ARCH}-unknown-linux-musl/release/ecapture /usr/bin/
 
 RUN chmod 600 /etc/passwd && \
   echo "deepflow:x:1000:1000::/home/deepflow:/bin/bash" >> /etc/passwd && \
