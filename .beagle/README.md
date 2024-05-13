@@ -60,7 +60,7 @@ docker run --rm \
   -e PLUGIN_ACCESS_KEY=$PLUGIN_ACCESS_KEY \
   -e PLUGIN_SECRET_KEY=$PLUGIN_SECRET_KEY \
   -e DRONE_REPO_OWNER="open-beagle" \
-  -e DRONE_REPO_NAME="runc" \
+  -e DRONE_REPO_NAME="btel-ebpf" \
   -e PLUGIN_MOUNT="./.git" \
   -v $(pwd):$(pwd) \
   -w $(pwd) \
@@ -73,43 +73,8 @@ docker run --rm \
   -e PLUGIN_ACCESS_KEY=$PLUGIN_ACCESS_KEY \
   -e PLUGIN_SECRET_KEY=$PLUGIN_SECRET_KEY \
   -e DRONE_REPO_OWNER="open-beagle" \
-  -e DRONE_REPO_NAME="runc" \
+  -e DRONE_REPO_NAME="btel-ebpf" \
   -v $(pwd):$(pwd) \
   -w $(pwd) \
   registry.cn-qingdao.aliyuncs.com/wod/devops-s3-cache:1.0
-```
-
-## runc:build 已过期
-
-```bash
-## debug
-docker run -it --rm \
--v $PWD/:/go/src/github.com/deepflowio/deepflow/server \
--w /go/src/github.com/deepflowio/deepflow/server \
-registry.cn-qingdao.aliyuncs.com/wod/golang:1.21 \
-bash
-
-## 首先打个补丁，再编译runc-build
-git apply .beagle/v1.1-add-mips64el-support.patch
-git apply -R .beagle/v1.1-add-mips64el-support.patch
-
-## cross
-docker build \
-  --no-cache \
-  --file ./.beagle/runc-build.dockerfile \
-  --build-arg GO_VERSION=1.21 \
-  --tag registry-vpc.cn-qingdao.aliyuncs.com/wod/runc:1.1.12-build \
-  .
-
-docker push registry-vpc.cn-qingdao.aliyuncs.com/wod/runc:1.1.12-build
-
-## loong64
-docker build \
-  --no-cache \
-  --file .beagle/runc-build-loong64.dockerfile \
-  --build-arg GO_VERSION=1.21-loongnix \
-  --tag registry-vpc.cn-qingdao.aliyuncs.com/wod/runc:1.1.12-build-loongnix \
-  .
-
-docker push registry-vpc.cn-qingdao.aliyuncs.com/wod/runc:1.1.12-build-loongnix
 ```

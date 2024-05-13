@@ -126,7 +126,7 @@ steps:
         from_secret: SOCKS5_PROXY
 
   - name: rust-amd64
-    image: registry.cn-qingdao.aliyuncs.com/wod/wod/btel-ebpf-agent:build-1.30-amd64
+    image: registry.cn-qingdao.aliyuncs.com/wod/btel-ebpf-agent:build-1.30-amd64
     environment:
       AGENT_ARCH: amd64
     commands:
@@ -151,7 +151,7 @@ steps:
         from_secret: REGISTRY_PASSWORD_ALIYUN
 
   - name: rust-arm64
-    image: registry.cn-qingdao.aliyuncs.com/wod/wod/btel-ebpf-agent:build-1.30-arm64
+    image: registry.cn-qingdao.aliyuncs.com/wod/btel-ebpf-agent:build-1.30-arm64
     environment:
       AGENT_ARCH: arm64
     commands:
