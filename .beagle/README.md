@@ -19,7 +19,7 @@ git merge v6.5.5
 docker run -it --rm \
 -v $PWD/:/go/src/github.com/deepflowio/deepflow \
 -w /go/src/github.com/deepflowio/deepflow \
-registry-vpc.cn-qingdao.aliyuncs.com/wod/golang:1.20-alpine \
+registry.cn-qingdao.aliyuncs.com/wod/golang:1.20-alpine \
 bash .beagle/btel-ebpf-server.sh
 
 # build-agent
@@ -27,14 +27,14 @@ docker run -it --rm \
 -v $PWD/:/go/src/github.com/deepflowio/deepflow \
 -w /go/src/github.com/deepflowio/deepflow \
 -e AGENT_ARCH="amd64" \
-registry-vpc.cn-qingdao.aliyuncs.com/wod/btel-ebpf-agent:build-1.30-amd64 \
+registry.cn-qingdao.aliyuncs.com/wod/btel-ebpf-agent:build-1.30-amd64 \
 bash .beagle/btel-ebpf-agent.sh
 
 docker run -it --rm \
 -v $PWD/:/go/src/github.com/deepflowio/deepflow \
 -w /go/src/github.com/deepflowio/deepflow \
 -e AGENT_ARCH="arm64" \
-registry-vpc.cn-qingdao.aliyuncs.com/wod/btel-ebpf-agent:build-1.30-arm64 \
+registry.cn-qingdao.aliyuncs.com/wod/btel-ebpf-agent:build-1.30-arm64 \
 bash .beagle/btel-ebpf-agent.sh
 ```
 
