@@ -17,6 +17,12 @@ clone:
   disable: true
 
 steps:
+  - name: fetch
+    image: registry.cn-qingdao.aliyuncs.com/wod/devops-git:1.0
+    settings:
+      proxy:
+        from_secret: SOCKS5_PROXY
+        
   - name: s3-cache
     image: registry.cn-qingdao.aliyuncs.com/wod/devops-s3-cache:1.0
     settings:
@@ -28,12 +34,6 @@ steps:
         from_secret: ACCESS_KEY_MINIO
       secret_key:
         from_secret: SECRET_KEY_MINIO
-
-  - name: fetch
-    image: registry.cn-qingdao.aliyuncs.com/wod/devops-git:1.0
-    settings:
-      proxy:
-        from_secret: SOCKS5_PROXY
 
   - name: golang
     image: registry.cn-qingdao.aliyuncs.com/wod/golang:1.20-alpine
