@@ -61,6 +61,7 @@ docker run --rm \
   -e PLUGIN_SECRET_KEY=$PLUGIN_SECRET_KEY \
   -e DRONE_REPO_OWNER="open-beagle" \
   -e DRONE_REPO_NAME="btel-ebpf" \
+  -e DRONE_COMMIT_BRANCH="v6.5.4" \
   -e PLUGIN_MOUNT="./.git,./server/vendor,./message/opentelemetry,./agent/src/ebpf/libs/jattach,./agent/target" \
   -v $(pwd):$(pwd) \
   -w $(pwd) \
@@ -74,6 +75,7 @@ docker run --rm \
   -e PLUGIN_SECRET_KEY=$PLUGIN_SECRET_KEY \
   -e DRONE_REPO_OWNER="open-beagle" \
   -e DRONE_REPO_NAME="btel-ebpf" \
+  -e DRONE_COMMIT_BRANCH="v6.5.4" \
   -v $(pwd):$(pwd) \
   -w $(pwd) \
   registry.cn-qingdao.aliyuncs.com/wod/devops-s3-cache:1.0
