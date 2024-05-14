@@ -33,8 +33,8 @@ curl \
   -sL https://github.com/gojue/ecapture/releases/download/v0.8.0/ecapture-v0.8.0-linux-${AGENT_ARCH}.tar.gz > \
   ${AGENT_ROOT}/target/downloads/ecapture-v0.8.0-linux-${AGENT_ARCH}.tar.gz
 rm -rf ${AGENT_ROOT}/target/ecapture-v0.8.0-linux-${AGENT_ARCH}
-tar -xf ${AGENT_ROOT}/target/downloads/ecapture-v0.8.0-linux-${AGENT_ARCH}.tar.gz -C ${AGENT_ARCH}/target
-mv ${AGENT_ROOT}/target/ecapture-v0.8.0-linux-${AGENT_ARCH}/ecapture ${AGENT_ARCH}/target/${AGENT_BUILD_ARCH}-unknown-linux-musl/release/
+tar -xf ${AGENT_ROOT}/target/downloads/ecapture-v0.8.0-linux-${AGENT_ARCH}.tar.gz -C ${AGENT_ROOT}/target
+mv ${AGENT_ROOT}/target/ecapture-v0.8.0-linux-${AGENT_ARCH}/ecapture ${AGENT_ROOT}/target/${AGENT_BUILD_ARCH}-unknown-linux-musl/release/
 rm -rf ${AGENT_ROOT}/target/downloads ${AGENT_ROOT}/target/ecapture-v0.8.0-linux-${AGENT_ARCH}
 
 ls -alh ${AGENT_ROOT}/target/${AGENT_BUILD_ARCH}-unknown-linux-musl/release
