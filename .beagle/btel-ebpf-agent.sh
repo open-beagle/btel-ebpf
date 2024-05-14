@@ -19,7 +19,7 @@ AGENT_ROOT=$PWD
 AGENT_ARCH="${AGENT_ARCH:-amd64}"
 AGENT_BUILD_ARCH=$(echo ${AGENT_ARCH} | sed 's|amd64|x86_64|' | sed 's|arm64|aarch64|')
 
-git config --global http.proxy "socks5://www.ali.wodcloud.com:1283"
+# git config --global http.proxy "socks5://www.ali.wodcloud.com:1283"
 
 cargo build --release --target="${AGENT_BUILD_ARCH}-unknown-linux-musl"
 
