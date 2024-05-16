@@ -9,7 +9,7 @@ git remote add upstream git@github.com:deepflowio/deepflow.git
 
 git fetch upstream
 
-git merge v6.5.5
+git merge v6.5.4
 ```
 
 ## build
